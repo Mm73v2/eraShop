@@ -1,4 +1,6 @@
+import Header from "./_common/Header";
 import "./globals.css";
+import ReduxProvider from "./providers/ReduxProvider";
 
 export const metadata = {
   title: "eraShop",
@@ -8,7 +10,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
     </html>
   );
 };
