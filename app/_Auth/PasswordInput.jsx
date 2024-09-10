@@ -20,7 +20,7 @@ const PasswordInput = ({ label, id, error, register, ...props }) => {
         />
         <button
           type="button"
-          className="absolute right-0"
+          className="absolute right-2"
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? (

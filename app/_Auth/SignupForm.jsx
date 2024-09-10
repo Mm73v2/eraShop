@@ -1,8 +1,10 @@
 "use client";
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useSelector } from "react-redux";
-import { UserRound, Mail } from "lucide-react";
+import { useSelector, useDispatch } from "react-redux";
+import { clearAuthStatus } from "../store/auth/AuthSlice";
+import { UserRound, Mail, LoaderCircle } from "lucide-react";
 import useRegister from "../hooks/useRegister";
 import PasswordInput from "./PasswordInput";
 import TextInput from "../_Auth/TextInput";
@@ -11,9 +13,22 @@ import AuthBtn from "./AuthBtn";
 import signupImage from "../../assets/signup.webp";
 
 const signupForm = () => {
-  const { register, handleSubmit, onSubmit, errors } = useRegister();
-  const { user } = useSelector((state) => state.signup);
-  console.log(user);
+  const { register, handleSubmit, onSubmit, errors, setError } = useRegister();
+  const { error, status } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const onBLurHandler = (e) => {
+    dispatch(clearAuthStatus());
+  };
+
+  useEffect(() => {
+    if (error) {
+      setError("email", {
+        type: "manual",
+        message: "Email is already registered",
+      });
+    }
+  }, [error]);
   return (
     <div className="bg-white md:h-screen">
       <div className="grid md:grid-cols-2 items-center gap-8 h-full">
@@ -38,7 +53,7 @@ const signupForm = () => {
               </h3>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div>
                 <TextInput
                   label="First Name"
@@ -48,7 +63,7 @@ const signupForm = () => {
                   icon={
                     <UserRound
                       size={20}
-                      className="absolute right-0 text-blue-500"
+                      className="absolute right-2 text-blue-500"
                     />
                   }
                   register={{ ...register("firstName") }}
@@ -66,7 +81,7 @@ const signupForm = () => {
                   icon={
                     <UserRound
                       size={20}
-                      className="absolute right-0 text-blue-500"
+                      className="absolute right-2 text-blue-500"
                     />
                   }
                   register={{ ...register("lastName") }}
@@ -83,15 +98,16 @@ const signupForm = () => {
                 type="email"
                 className="w-full bg-transparent text-sm border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
                 icon={
-                  <Mail size={20} className="absolute right-0 text-blue-500" />
+                  <Mail size={20} className="absolute right-2 text-blue-500" />
                 }
                 register={{ ...register("email") }}
                 error={errors.email?.message}
                 placeholder="Enter your email"
+                onBlur={onBLurHandler}
               />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="mt-6">
                 <PasswordInput
                   label="Password"
@@ -132,7 +148,22 @@ const signupForm = () => {
             </div>
 
             <div className="mt-12">
-              <AuthBtn text="Create Account" type="submit" />
+              <AuthBtn
+                text={
+                  status === "loading" ? (
+                    <div className="flex items-center gap-2 justify-center">
+                      loading{" "}
+                      <LoaderCircle
+                        size={20}
+                        className="animate-spin text-white"
+                      />
+                    </div>
+                  ) : (
+                    "Create Account"
+                  )
+                }
+                disabled={status === "loading"}
+              />
               <p className="text-sm mt-6 text-gray-800">
                 Already have an account?
                 <Link

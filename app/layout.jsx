@@ -1,4 +1,4 @@
-import Header from "./_common/Header";
+import Header from "./_common/Header/Header";
 import "./globals.css";
 import ReduxProvider from "./providers/ReduxProvider";
 
@@ -11,7 +11,10 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>{children}</ReduxProvider>
+        <Header />
+        <ReduxProvider>
+          <main className="pt-[70px]">{children}</main>
+        </ReduxProvider>
       </body>
     </html>
   );
