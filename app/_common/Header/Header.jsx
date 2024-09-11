@@ -48,11 +48,11 @@ const Header = () => {
             </li>
 
             <HeaderLink text="Home" href="/" />
-            <HeaderLink text="Team" href="/" />
-            <HeaderLink text="Feature" href="/" />
-            <HeaderLink text="Blog" href="/" />
-            <HeaderLink text="About" href="/" />
-            <HeaderLink text="Contact" href="/" />
+            <HeaderLink text="Team" href="/test" />
+            <HeaderLink text="Feature" href="/test" />
+            <HeaderLink text="Blog" href="/test" />
+            <HeaderLink text="About" href="/test" />
+            <HeaderLink text="Contact" href="/test" />
             <HeaderLink
               text="Login"
               href="/"

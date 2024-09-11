@@ -1,5 +1,11 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const HeaderLink = ({ href, text, liClasses, linkClasses }) => {
+  const pathname = usePathname();
+
+  const isActive = (path) => pathname === path;
+
   return (
     <li
       className={`${liClasses} max-lg:border-b border-gray-300 max-lg:py-3 px-3`}
@@ -9,7 +15,11 @@ const HeaderLink = ({ href, text, liClasses, linkClasses }) => {
         className={
           linkClasses
             ? "auth-link"
-            : "hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]"
+            : `${
+                isActive(href)
+                  ? "text-[#007bff] font-bold block text-[15px]"
+                  : "hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]"
+              }`
         }
       >
         {text}
