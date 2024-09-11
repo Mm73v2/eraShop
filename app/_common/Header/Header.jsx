@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 import { X, Menu } from "lucide-react";
 import HeaderLink from "./HeaderLink";
+import HeaderCart from "./HeaderCart";
 
 const Header = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
@@ -10,6 +12,8 @@ const Header = () => {
   const displayNavMenu = () => {
     setShowNavMenu((prev) => !prev);
   };
+
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <header className="flex shadow-md py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide fixed top-0 left-0 w-full z-50">
@@ -69,13 +73,13 @@ const Header = () => {
         </div>
 
         <div className="flex max-lg:ml-auto space-x-3">
-          <Link href="/login" className="max-sm:hidden auth-link">
+          {/* <Link href="/login" className="max-sm:hidden auth-link">
             Login
           </Link>
           <Link href="/register" className="max-sm:hidden auth-link">
             Sign Up
-          </Link>
-
+          </Link> */}
+          <HeaderCart />
           <button onClick={displayNavMenu} className="lg:hidden">
             <Menu />
           </button>

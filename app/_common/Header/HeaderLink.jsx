@@ -1,7 +1,8 @@
+import { memo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const HeaderLink = ({ href, text, liClasses, linkClasses }) => {
+const HeaderLink = memo(({ href, text, liClasses, linkClasses }) => {
   const pathname = usePathname();
 
   const isActive = (path) => pathname === path;
@@ -26,6 +27,6 @@ const HeaderLink = ({ href, text, liClasses, linkClasses }) => {
       </Link>
     </li>
   );
-};
+});
 
 export default HeaderLink;

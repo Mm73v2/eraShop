@@ -11,8 +11,8 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <Header />
         <ReduxProvider>
+          <Header />
           <main className="pt-[70px]">{children}</main>
         </ReduxProvider>
       </body>
