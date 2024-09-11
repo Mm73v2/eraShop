@@ -1,9 +1,11 @@
-import HeroSection from "./HeroSection/HeroSection";
+import HeroSection from "./_HeroSection/HeroSection";
+import ProductsSection from "./ProductsSection/ProductsSection";
 
 const HomePage = () => {
   return (
     <div>
       <HeroSection />
+      <ProductsSection />
     </div>
   );
 };
