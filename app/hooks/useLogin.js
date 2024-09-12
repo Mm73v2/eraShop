@@ -4,7 +4,9 @@ import { actLogin, clearAuthStatus } from "../store/auth/AuthSlice";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import loginSchema from "../_common/schemas/loginSchema";
+import { useRouter } from "next/navigation";
 const useLogin = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -20,6 +22,7 @@ const useLogin = () => {
     try {
       await dispatch(actLogin(userData)).unwrap();
       // Handle successful signup (e.g., redirect or show a success message)
+      router.push("/");
     } catch (error) {
       // Handle error if needed
       console.error("Signup failed:", error);

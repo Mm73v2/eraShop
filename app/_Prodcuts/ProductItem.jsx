@@ -1,8 +1,25 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../store/cart/CartSlice";
 import { Heart, ShoppingCart, LayoutGrid, Star } from "lucide-react";
 const ProductItem = ({ id, img, title, price, category }) => {
-  console.log(id, img, title, price, category);
+  const dispatch = useDispatch();
+
+  const router = useRouter();
+
+  const { user } = useSelector((state) => state.auth);
+
+  const addToCartHandler = () => {
+    if (user) {
+      dispatch(addToCart(id));
+    } else {
+      router.push("/");
+    }
+  };
+
   return (
     <div className="bg-gray-50 shadow-md overflow-hidden rounded-lg cursor-pointer hover:-translate-y-2 transition-all relative">
       <div className="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-3 right-3">
@@ -10,7 +27,7 @@ const ProductItem = ({ id, img, title, price, category }) => {
       </div>
 
       <Link
-        href={"#"}
+        href={`products/${id}`}
         className="block w-5/6 h-[260px] p-4 overflow-hidden mx-auto aspect-w-16 aspect-h-8"
       >
         <Image
@@ -41,6 +58,7 @@ const ProductItem = ({ id, img, title, price, category }) => {
 
       <div className="p-3 pb-4">
         <button
+          onClick={addToCartHandler}
           type="button"
           className="add-to-cart w-full flex items-center justify-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-base text-white font-semibold rounded-xl"
         >

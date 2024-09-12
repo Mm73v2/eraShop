@@ -16,6 +16,10 @@ const AuthSlice = createSlice({
       state.status = "idle";
       state.error = null;
     },
+    logout: (state) => {
+      state.user = null;
+      state.token = null;
+    },
   },
   extraReducers: (builder) => {
     // Register
@@ -53,5 +57,5 @@ const AuthSlice = createSlice({
 });
 
 export { actSignup, actLogin };
-export const { clearAuthStatus } = AuthSlice.actions;
+export const { clearAuthStatus, logout } = AuthSlice.actions;
 export default AuthSlice.reducer;

@@ -2,9 +2,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { X, Menu } from "lucide-react";
+import { X, Menu, UserRound } from "lucide-react";
 import HeaderLink from "./HeaderLink";
 import HeaderCart from "./HeaderCart";
+import HeaderUser from "./HeaderUser";
 
 const Header = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
@@ -72,13 +73,14 @@ const Header = () => {
           </ul>
         </div>
 
-        <div className="flex max-lg:ml-auto space-x-3">
+        <div className="flex items-center max-lg:ml-auto space-x-3">
           {/* <Link href="/login" className="max-sm:hidden auth-link">
             Login
           </Link>
           <Link href="/register" className="max-sm:hidden auth-link">
             Sign Up
           </Link> */}
+          <HeaderUser />
           <HeaderCart />
           <button onClick={displayNavMenu} className="lg:hidden">
             <Menu />
