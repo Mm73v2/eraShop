@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateQuantity } from "../store/cart/CartSlice";
-import { actGetCartItems } from "../store/cart/CartSlice";
+import { updateQuantity } from "@/store/cart/CartSlice";
+import { actGetCartItems } from "@/store/cart/CartSlice";
 import Image from "next/image";
 import { Plus, Minus, CircleX } from "lucide-react";
 

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { actLogin, clearAuthStatus } from "../store/auth/AuthSlice";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import loginSchema from "../_common/schemas/loginSchema";
+import loginSchema from "@/schemas/loginSchema";
 import { useRouter } from "next/navigation";
 const useLogin = () => {
   const router = useRouter();

@@ -1,6 +1,5 @@
-import Header from "@/components/common/Header/Header";
-import "./globals.css";
 import ReduxProvider from "@/providers/ReduxProvider";
+import "./globals.css";
 
 export const metadata = {
   title: "eraShop",
@@ -12,7 +11,6 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body>
         <ReduxProvider>
-          <Header />
           <main className="pt-[70px]">{children}</main>
         </ReduxProvider>
       </body>

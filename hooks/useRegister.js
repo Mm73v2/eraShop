@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { actSignup, clearAuthStatus } from "../store/auth/AuthSlice";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import signupSchema from "../_common/schemas/signupSchema";
+import signupSchema from "@/schemas/signupSchema";
 const useRegister = () => {
   const {
     register,

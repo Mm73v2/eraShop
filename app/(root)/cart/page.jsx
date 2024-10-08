@@ -1,7 +1,7 @@
 "use client";
-import useCart from "../hooks/useCart";
-import CartProduct from "../_Cart/CartProduct";
-import OrderSummary from "../_Cart/OrderSummary";
+import useCart from "@/hooks/useCart";
+import CartProduct from "@/components/cart/CartProduct";
+import OrderSummary from "@/components/cart/OrderSummary";
 
 const page = () => {
   const { productsWithQuantity, totalOrderPrice, removeProductFromCart } =

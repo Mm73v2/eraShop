@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import useLogin from "../hooks/useLogin";
+import useLogin from "@/hooks/useLogin";
 import { Mail, LoaderCircle } from "lucide-react";
 import TextInput from "./TextInput";
 import PasswordInput from "./PasswordInput";
