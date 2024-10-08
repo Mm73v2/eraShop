@@ -5,10 +5,10 @@ export const metadata = {
 };
 const layout = ({ children }) => {
   return (
-    <main>
+    <>
       <Header />
-      {children}
-    </main>
+      <main className="pt-[70px]">{children}</main>
+    </>
   );
 };
 

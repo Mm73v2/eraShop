@@ -34,9 +34,9 @@ const signupForm = () => {
       <div className="grid md:grid-cols-2 items-center gap-8 h-full">
         <div className="max-md:order-1 p-4 bg-gray-50 h-full">
           <Image
-            width={0}
-            height={0}
-            src={signupImage}
+            width={1024}
+            height={1024}
+            src="/signup.webp"
             className="lg:max-w-[90%] w-full h-full object-contain block mx-auto"
             alt="register-image"
           />

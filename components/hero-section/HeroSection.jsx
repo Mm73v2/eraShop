@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Store, HandHelping, SquareArrowUpRight } from "lucide-react";
-import heroImage from "../../assets/hero.webp";
 import HeroStats from "./HeroStats";
 import HeroService from "./HeroService";
 
@@ -37,9 +36,9 @@ const HeroSection = () => {
 
         <div className="lg:h-[550px] md:h-[550px] flex items-center relative max-md:before:hidden before:absolute before:bg-[#DEE2E5] before:h-[120%] before:w-[120%] before:right-0 before:z-0">
           <Image
-            width={0}
-            height={0}
-            src={heroImage}
+            width={700}
+            height={700}
+            src="/hero.webp"
             className="rounded-md h-[400px] object-cover lg:w-4/5 z-20 relative"
             alt="Dining Experience"
           />

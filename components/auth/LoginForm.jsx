@@ -8,8 +8,6 @@ import TextInput from "./TextInput";
 import PasswordInput from "./PasswordInput";
 import Checkbox from "./Checkbox";
 import AuthBtn from "./AuthBtn";
-import loginImage from "../../assets/login.webp";
-
 const LoginForm = () => {
   const { register, handleSubmit, onSubmit, errors } = useLogin();
 
@@ -115,9 +113,9 @@ const LoginForm = () => {
 
         <div className="lg:h-[400px] md:h-[300px] max-md:mt-8">
           <Image
-            width={0}
-            height={0}
-            src={loginImage}
+            width={1024}
+            height={1024}
+            src="/login.webp"
             className="w-full h-full max-md:w-4/5 mx-auto block object-cover"
             alt="Dining Experience"
           />

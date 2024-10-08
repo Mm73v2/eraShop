@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useSelector } from "react-redux";
 import { X, Menu, UserRound } from "lucide-react";
 import HeaderLink from "./HeaderLink";
@@ -17,14 +18,24 @@ const Header = () => {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <header className="flex shadow-md py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide fixed top-0 left-0 w-full z-50">
+    <header className="flex shadow-md py-1 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide fixed top-0 left-0 w-full z-50">
       <div className="flex flex-wrap items-center justify-between gap-5 w-full">
-        <Link href="/">
-          <img
-            src="https://readymadeui.com/readymadeui.svg"
+        <Link href="/" className="flex items-center relative">
+          <Image
+            src="/logo.svg"
+            width={50}
+            height={50}
             alt="logo"
-            className="w-36"
+            className="w-[50px] h-[50px]"
           />
+          <Image
+            src="/logo-globe.svg"
+            width={50}
+            height={50}
+            alt="logo"
+            className="w-[30px] absolute -left-1 bg-white top-6"
+          />
+          <h2 className="font-bold text-blue-700 text-2xl">eraShop</h2>
         </Link>
 
         <div
@@ -44,10 +55,12 @@ const Header = () => {
             {/* logo */}
             <li className="mb-6 hidden max-lg:block">
               <Link href="/">
-                <img
-                  src="https://readymadeui.com/readymadeui.svg"
+                <Image
+                  src="/logo.svg"
+                  width={50}
+                  height={50}
                   alt="logo"
-                  className="w-36"
+                  className="w-[50px] h-[50px]"
                 />
               </Link>
             </li>
