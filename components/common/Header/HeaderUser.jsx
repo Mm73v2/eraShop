@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "@/app/store/auth/AuthSlice";
+import { logout } from "@/store/auth/AuthSlice";
 import { UserRound, ArrowDown, Power } from "lucide-react";
 
 const HeaderUser = () => {

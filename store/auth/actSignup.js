@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosClient from "../../axiosClient/axiosClient";
+import axiosClient from "@/utils/axiosClient/axiosClient";
 
-const actLogin = createAsyncThunk(
-  "signup/actLogin",
+const actSignup = createAsyncThunk(
+  "signup/actSignup",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axiosClient.post("/login", userData);
+      const response = await axiosClient.post("/api/Auth/sign-up", userData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -13,4 +13,4 @@ const actLogin = createAsyncThunk(
   }
 );
 
-export default actLogin;
+export default actSignup;

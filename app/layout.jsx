@@ -1,6 +1,6 @@
-import Header from "./_common/Header/Header";
+import Header from "@/components/common/Header/Header";
 import "./globals.css";
-import ReduxProvider from "./providers/ReduxProvider";
+import ReduxProvider from "@/providers/ReduxProvider";
 
 export const metadata = {
   title: "eraShop",

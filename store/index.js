@@ -11,25 +11,19 @@ import CartSlice from "./cart/CartSlice";
 const rootPersistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart", "auth"],
+  whitelist: ["auth"],
 };
 
 const authPersistConfig = {
   key: "auth", // This is the name under which it will be stored in localStorage
   storage,
-  whitelist: ["user", "token"], // Only persist user and token
-};
-
-const cartPersistConfig = {
-  key: "cart",
-  storage,
-  whitelist: ["cartItems"],
+  whitelist: ["user", "token", "status"], // Only persist user and token
 };
 
 // Combine reducers (if you have other slices)
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, AuthSlice),
-  cart: persistReducer(cartPersistConfig, CartSlice),
+  cart: CartSlice,
   // other slices can go here
 });
 

@@ -74,14 +74,24 @@ const Header = () => {
         </div>
 
         <div className="flex items-center max-lg:ml-auto space-x-3">
-          {/* <Link href="/login" className="max-sm:hidden auth-link">
-            Login
-          </Link>
-          <Link href="/register" className="max-sm:hidden auth-link">
-            Sign Up
-          </Link> */}
-          <HeaderUser />
-          <HeaderCart />
+          {user ? (
+            <>
+              {" "}
+              <HeaderUser />
+              <HeaderCart />
+            </>
+          ) : (
+            <>
+              {" "}
+              <Link href="/login" className="max-sm:hidden auth-link">
+                Login
+              </Link>
+              <Link href="/register" className="max-sm:hidden auth-link">
+                Sign Up
+              </Link>
+            </>
+          )}
+
           <button onClick={displayNavMenu} className="lg:hidden">
             <Menu />
           </button>

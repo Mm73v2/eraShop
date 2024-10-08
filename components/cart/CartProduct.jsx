@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateQuantity } from "../store/cart/CartSlice";
+import { actGetCartItems } from "../store/cart/CartSlice";
 import Image from "next/image";
 import { Plus, Minus, CircleX } from "lucide-react";
 
@@ -24,7 +25,9 @@ const CartProduct = ({ id, title, img, quantity, subtotal, removeProduct }) => {
   };
 
   useEffect(() => {
-    dispatch(updateQuantity({ id, quantity: productQuantity }));
+    dispatch(
+      actGetCartItems({ type: "add", productId: id, quantity: productQuantity })
+    );
   }, [productQuantity, id, dispatch]);
 
   return (

@@ -1,18 +1,18 @@
 import Link from "next/link";
-import axiosClient from "../axiosClient/axiosClient";
+import axiosClient from "@/utils/axiosClient/axiosClient";
 import { ArrowUpRight } from "lucide-react";
-import ProductsContainer from "../_Prodcuts/ProductsContainer";
+import ProductsContainer from "@/components/Prodcuts/ProductsContainer";
 const page = async () => {
-  const res = await axiosClient.get("http://localhost:8080/products?_limit=6");
-  const products = res.data;
-
+  // const res = await axiosClient.get("http://localhost:8080/products?_limit=6");
+  // const products = res.data;
+  // console.log(JSON.parse(localStorage.getItem("auth")));
   return (
     <section className="py-4 mx-auto lg:max-w-[90rem] sm:max-w-full mb-10 px-10">
       <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
         Latest Products
       </h2>
 
-      <ProductsContainer products={products} />
+      <ProductsContainer products={[]} />
 
       <div className="flex justify-center">
         <Link

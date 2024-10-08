@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../store/cart/CartSlice";
+import { actGetCartItems } from "@/store/cart/CartSlice";
 import { Heart, ShoppingCart, LayoutGrid, Star } from "lucide-react";
 const ProductItem = ({ id, img, title, price, category }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const ProductItem = ({ id, img, title, price, category }) => {
 
   const addToCartHandler = () => {
     if (user) {
-      dispatch(addToCart(id));
+      dispatch(actGetCartItems({ type: "add", productId: id }));
     } else {
       router.push("/");
     }

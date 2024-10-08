@@ -1,15 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosClient from "../../axiosClient/axiosClient";
+import axiosClient from "@/utils/axiosClient/axiosClient";
 
 const actGetCartProducts = createAsyncThunk(
   "cart/actGetCartProducts",
   async (_, { rejectWithValue, getState, fulfillWithValue }) => {
     const { cart } = getState();
+
     const cartItemsIds = Object.keys(cart.cartItems);
+
     if (!cartItemsIds.length) {
-      console.log("test");
       return fulfillWithValue([]);
     }
+
     try {
       const concatinatedItemsId = cartItemsIds
         .map((el) => `id=${el}`)

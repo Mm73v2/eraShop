@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actGetCartProducts, removeFromCart } from "../store/cart/CartSlice";
+import { actGetCartItems, actGetCartProducts } from "../store/cart/CartSlice";
 
 const useCart = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const useCart = () => {
   );
 
   const removeProductFromCart = (id) => {
-    dispatch(removeFromCart(id));
+    dispatch(actGetCartItems({ type: "remove", productId: id }));
   };
 
   useEffect(() => {

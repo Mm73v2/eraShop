@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import actGetCartProducts from "./actGetCartProducts";
+import actGetCartItems from "./actGetCartItems";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartItems: {}, // Array of cart items
+    cartItems: {},
     cartProducts: [],
     status: "idle",
     error: null,
@@ -29,6 +30,22 @@ const cartSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    // Getting the cartList
+    builder
+      .addCase(actGetCartItems.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(actGetCartItems.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.cartItems = action.payload.items;
+      })
+      .addCase(actGetCartItems.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      });
+
+    // Getting the products full information from the server
     builder
       .addCase(actGetCartProducts.pending, (state) => {
         state.status = "loading";
@@ -46,5 +63,5 @@ const cartSlice = createSlice({
 });
 
 export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
-export { actGetCartProducts };
+export { actGetCartProducts, actGetCartItems };
 export default cartSlice.reducer;

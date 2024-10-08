@@ -2,7 +2,10 @@ import Link from "next/link";
 const OrderSummary = ({ subtotal, tax, shipping }) => {
   const total = subtotal + tax + shipping;
   return (
-    <>
+    <div className="bg-gray-50 p-6 lg:sticky lg:top-0 lg:h-screen">
+      <h2 className="text-2xl font-bold text-gray-800 border-b pb-4">
+        Order Summary
+      </h2>
       <ul className="text-gray-800 divide-y mt-6">
         <li className="flex flex-wrap gap-4 text-base py-3">
           Subtotal
@@ -30,7 +33,7 @@ const OrderSummary = ({ subtotal, tax, shipping }) => {
       >
         Make Payment
       </Link>
-    </>
+    </div>
   );
 };
 

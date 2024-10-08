@@ -1,4 +1,4 @@
-import ProductItem from "../_Prodcuts/ProductItem";
+import ProductItem from "@/components/prodcuts/ProductItem";
 
 const ProductsContainer = ({ products }) => {
   return (
